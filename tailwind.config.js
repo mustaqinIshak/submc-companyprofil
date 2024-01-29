@@ -6,9 +6,6 @@ export default {
 ],
   theme: {
     extend: {
-      zIndex: {
-        '3000': '3000',
-      }
     },
   },
   plugins: [require('flowbite/plugin')],
