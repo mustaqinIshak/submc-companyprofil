@@ -45,7 +45,7 @@ function SlideShow() {
       });
 
     return (
-        <div className="" onClick={() => handdlehangeImage()}>
+        <div className="mb-[110px]" onClick={() => handdlehangeImage()}>
             <div className="w-full h-full flex overflow-hidden">
                 {
                     dataSlideshow.map((item, index) => 

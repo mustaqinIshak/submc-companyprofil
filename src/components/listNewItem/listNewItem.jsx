@@ -8,7 +8,8 @@ import item6 from "../../assets/exampleItem/item6.jpg"
 
 function ListNewItem() {
     return(
-        <div className="w-full grid justify-items-center ">
+        <div className="w-full grid justify-items-center mb-[100px]">
+            <h1 className="text-[24px] font-semibold">NEW ARRIVALS</h1>
             <div className="flex justify-beetwen max-w-[1000px] flex-wrap">
                 <CardItem img={item1} />
                 <CardItem img={item2} />
@@ -16,6 +17,26 @@ function ListNewItem() {
                 <CardItem img={item4} />
                 <CardItem img={item5} />
                 <CardItem img={item6} />
+            </div>
+            <div>
+                <span type="button" 
+                    className="
+                        text-white 
+                        bg-black
+                        hover:bg-gray-900 
+                        focus:outline-none 
+                        focus:ring-4 
+                        focus:ring-gray-300 
+                        font-medium 
+                        text-sm 
+                        px-[40px] 
+                        py-[25px] 
+                        me-2 
+                        mb-2 
+                    "
+                >
+                    ALL NEW ITEM
+                </span>
             </div>
         </div>
     )
