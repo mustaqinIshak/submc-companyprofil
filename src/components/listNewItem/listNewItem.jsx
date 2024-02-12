@@ -8,9 +8,10 @@ import item6 from "../../assets/exampleItem/item6.jpg"
 
 function ListNewItem() {
     return(
-        <div className="w-full grid justify-items-center mb-[100px]">
+        <div className="flex flex-col items-center justify-center laptop:mx-[90px] mb-[100px]">
             <h1 className="text-[24px] font-semibold">NEW ARRIVALS</h1>
-            <div className="flex justify-beetwen max-w-[1000px] flex-wrap">
+            {/* <div className="flex tablet:justify-beetwen max-w-[1000px] flex-wrap"> */}
+            <div className=" grid grid-cols-2 laptop:grid-cols-3">
                 <CardItem img={item1} />
                 <CardItem img={item2} />
                 <CardItem img={item3} />
