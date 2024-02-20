@@ -46,10 +46,10 @@ function SlideShow() {
 
     return (
         <div className="mb-[110px]" onClick={() => handdlehangeImage()}>
-            <div className="w-full h-auto flex overflow-hidden">
+            <div className="w-auto flex overflow-hidden">
                 {
                     dataSlideshow.map((item, index) => 
-                        <img className="img-slider-img" src={item.url} style={{ translate: `${-100 * indexImage}%` }} />
+                        <img className="" src={item.url} style={{ translate: `${-100 * indexImage}%` }} />
                     )
                 }
             </div>

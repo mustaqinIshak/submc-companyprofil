@@ -1,9 +1,9 @@
 function Footer() {
     return(
         <div className="w-full border-t-[1px] border-t-[#cccccc]">
-            <div className="w-[1200px] pb-[100px] py-[35px] mx-auto">
+            <div className="md:w-[1200px] pb-[100px] py-[35px] mx-auto">
                 <nav>
-                    <ul className="flex justify-center">
+                    <ul className="grid grid-cols-2 gap-11 justify-items-center tablet:flex tablet:justify-center">
                         <li className="mr-[10px]">
                             <dl>
                                 <dt className="text-[11px] mb-[10px] font-normal pl-[1.25rem] pr-[1.25rem] w-full min-w-[85px]">TOP</dt>
@@ -79,7 +79,7 @@ function Footer() {
                                 </dd>
                             </dl>
                         </li>
-                        <li className="mr-[10px]">
+                        <li className="mr-[10px] col-span-2">
                             <dl>
                                 <dt className="
                                     underline 
