@@ -12,7 +12,8 @@ function ListNewItem() {
         setLoading(true)
         try {
             const result = await getIndex()
-            if(result.data) {
+            console.log('ini hasil result', result)
+            if(result) {
                 setItems([...result])
             }
         } catch (error) {
@@ -31,13 +32,21 @@ function ListNewItem() {
                 <LoadingSpinner />
                 :
                 items.length !== 0 ?
-                <div>
+                <div className="flex flex-col items-center justify-center">
                     <h1 className="text-[24px] font-semibold">NEW ARRIVALS</h1>
                     {/* <div className="flex tablet:justify-beetwen max-w-[1000px] flex-wrap"> */}
                     <div className=" grid grid-cols-2 laptop:grid-cols-3">
                         {
                             items.map((item, index) =>
-                                <CardItem key={index} img={item.gambar1.path} img2={item.gambar2.path} />
+                                <CardItem 
+                                    key={index} 
+                                    img={item.gambar1.path} 
+                                    img2={item.gambar2.path} 
+                                    nameItem={item.name} 
+                                    price={item.harga}
+                                    diskon={item.sale == 1 ? true : false }
+                                    jumlah_diskon={item.jumlah_sale} 
+                                />
                             )
                         }
                     </div>
