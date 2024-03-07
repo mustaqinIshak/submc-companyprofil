@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'MyFont';
+    src: local('MyFont'), url("../../fonts/HelveticaNeueLTPro-Bd.ttf") format('truetype');
+    /* other formats include: 'woff2', 'truetype, 'opentype',
+                              'embedded-opentype', and 'svg' */
+}
+
+.title-produk {
+    font-family: 'MyFont';
+}

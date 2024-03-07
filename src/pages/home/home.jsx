@@ -3,7 +3,7 @@ import ListNewItem from "../../components/listNewItem/listNewItem";
 
 function Home() {
     return(
-        <div className='mt-[188px]'>
+        <div className=''>
             <SlideShow />
             <ListNewItem />
         </div>

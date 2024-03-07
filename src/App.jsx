@@ -6,14 +6,18 @@ import Navbar from './components/navbar'
 import Home from './pages/home/home'
 import Footer from './components/footer/footer'
 import { Outlet } from 'react-router-dom'
+import Breadcrumb from './components/breadcrumb'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className=' bg-white text-black'>
+    <div className='bg-white text-black'>
       <Navbar />
-        <Outlet />
+        <div className='mt-[188px]'>
+          <Breadcrumb />
+          <Outlet />
+        </div>
       <Footer />
     </div>
   )

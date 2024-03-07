@@ -39,7 +39,7 @@ function SlideShow() {
           } else {
             clearInterval(interval);
         }
-        console.log(indexImage)
+        // console.log(indexImage)
         }, 5000);
         return () => clearInterval(interval);
       });
@@ -49,7 +49,7 @@ function SlideShow() {
             <div className="w-auto flex overflow-hidden">
                 {
                     dataSlideshow.map((item, index) => 
-                        <img className="" src={item.url} style={{ translate: `${-100 * indexImage}%` }} />
+                        <img key={index} className="" src={item.url} style={{ translate: `${-100 * indexImage}%` }} />
                     )
                 }
             </div>

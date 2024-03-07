@@ -9,6 +9,7 @@ import {
 import Home from './pages/home/home.jsx'
 import ErrorPage from './pages/404/errorPage.jsx'
 import Shop from './pages/shop/shop.jsx'
+import DetailItem from './pages/detail-item/detailItem.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path:"/shop",
         element:<Shop />
+      },
+      {
+        path:"/detailProduk",
+        element:<DetailItem />
       }
     ]
   }
@@ -31,7 +36,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div className=' bg-white text-black'>
+    <div className='w-full bg-white text-black'>
         <RouterProvider router={router} />
     </div>
   </React.StrictMode>,
