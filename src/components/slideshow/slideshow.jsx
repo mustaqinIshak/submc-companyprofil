@@ -48,7 +48,7 @@ function SlideShow() {
       });
 
     return (
-        <div id="carouselFade" className="mb-[110px] w-screen carousel slide carousel-fade" data-ride="carousel" onClick={() => handdlehangeImage()}>
+        <div id="carouselFade" className="mb-[110px] w-full carousel slide carousel-fade" data-ride="carousel" onClick={() => handdlehangeImage()}>
             <div className="carousel-inner">
                 {
                     dataSlideshow.map((item,index) => 
