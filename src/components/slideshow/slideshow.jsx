@@ -21,8 +21,9 @@ const dataSlideshow = [
 function SlideShow() {
     const [indexImage, setIndexImage] = useState(0)
     const [pause, setPause] = useState(false);
-
+    const [css, setCss] = useState(true)
     const handdlehangeImage = () => {
+        setCss(false)
         setIndexImage(indexImage => {
             if(indexImage === dataSlideshow.length - 1) {
                 return 0
@@ -30,6 +31,8 @@ function SlideShow() {
                 return indexImage + 1
             }
         }) 
+        setCss(true)
+   
     }
 
     useEffect(() => {
@@ -45,17 +48,14 @@ function SlideShow() {
       });
 
     return (
-        <div className="mb-[110px]" onClick={() => handdlehangeImage()}>
-            <div className="w-auto flex overflow-hidden">
+        <div id="carouselFade" className="mb-[110px] w-screen carousel slide carousel-fade" data-ride="carousel" onClick={() => handdlehangeImage()}>
+            <div className="carousel-inner">
                 {
-                    dataSlideshow.map((item, index) => 
-                        <img key={index} className="" src={item.url} style={{ translate: `${-100 * indexImage}%` }} />
+                    dataSlideshow.map((item,index) => 
+                        <img key={index} className={index === indexImage ? "item active" : "item"}  src={item.url} />
                     )
                 }
             </div>
-            {/* <img className="show" src={dataSlideshow[0].url} />
-            <img className="not-show" src={dataSlideshow[1].url} />
-            <img className="not-show" src={dataSlideshow[2].url} /> */}
         </div>
     )
 }

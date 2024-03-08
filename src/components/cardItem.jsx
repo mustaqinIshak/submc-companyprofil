@@ -29,9 +29,9 @@ function CardItem ({img, img2,nameItem = "no-name", price="Rp. 0", diskon=false,
             <img className="absolute h-full w-full laptop:p-8  group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition ease-in-out duration-500" src={img2} alt="produk image" />
         </div>
         <div className="px-5 pb-5">
-            <a href="#">
+            <span>
                 <h5 className=" laptop:text-[12px] text-center font-semibold tracking-tight text-gray-900 dark:text-white">{nameItem}</h5>
-            </a>
+            </span>
            
             {
                 handleDiskon()

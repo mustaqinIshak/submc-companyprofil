@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import cmmLogoBlack from "../assets/logo/logoblack.png"
+import crasherLogoBlack from "../assets/logo/logoCrasher.png"
 
 function Header() {
   const [scrollNavbar, setScrollNavbar] = useState(false)
@@ -16,7 +16,7 @@ function Header() {
   window.addEventListener('scroll', changeBackground)
   return(
   <header className={` ${scrollNavbar ? "pt-[30px]" : "pt-[60px]"} pb-[10px] w-full h-auto text-center flex justify-center`}>        
-      <span><img src={cmmLogoBlack} className="w-[150px]" /></span>
+      <span><img src={crasherLogoBlack} className="w-[550px]" /></span>
     </header>
   )
 }

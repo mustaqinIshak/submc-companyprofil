@@ -17,7 +17,7 @@ function ListNewItem() {
                 setItems([...result])
             }
         } catch (error) {
-            
+            console.log("gagal mengambil data")
         }
         setLoading(false)
     }
@@ -36,7 +36,7 @@ function ListNewItem() {
                     <h1 className="text-[24px] font-semibold">NEW ARRIVALS</h1>
                     {/* <div className="flex tablet:justify-beetwen max-w-[1000px] flex-wrap"> */}
                     <div className=" grid grid-cols-2 laptop:grid-cols-3">
-                        {
+                    {
                             items.map((item, index) =>
                                 <CardItem 
                                     key={index} 
