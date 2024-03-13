@@ -25,6 +25,7 @@ async function getIndex() {
     }
 }
 
+
 export {
     getIndex,
 }

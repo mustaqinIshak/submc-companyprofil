@@ -5,7 +5,6 @@ import CardItem from "../cardItem"
 import ButtonDefault from "../buttons/buttonDefault"
 
 function ListNewItem() {
-
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(false)
     const getNewItem = async () => {
@@ -39,6 +38,7 @@ function ListNewItem() {
                     {
                             items.map((item, index) =>
                                 <CardItem 
+                                    id={item.id}
                                     key={index} 
                                     img={item.gambar1.path} 
                                     img2={item.gambar2.path} 

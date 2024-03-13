@@ -1,22 +1,33 @@
-import item1 from "../../assets/exampleItem/item1.jpg"
-import item2 from "../../assets/exampleItem/item2.jpg"
-import item3 from "../../assets/exampleItem/item3.jpg"
-import item4 from "../../assets/exampleItem/item4.jpg"
-import item5 from "../../assets/exampleItem/item5.jpg"
-import item6 from "../../assets/exampleItem/item6.jpg"
+import LoadingSpinner from "../loadingSpinner"
 import CardItem from "../cardItem"
 
-function ListItemShop({category, subCategory}) {
+function ListItemShop({items, loading}) {
     return(
         <div className="flex flex-col items-center justify-center laptop:mx-[90px] mb-[100px] overflow-hidden">
+        {
+            loading ?
+            <LoadingSpinner />
+            :
+            items.length !== 0 ?
             <div className=" grid grid-cols-2 laptop:grid-cols-3">
-                <CardItem img={item1} />
-                <CardItem img={item2} />
-                <CardItem img={item3} />
-                <CardItem img={item4} />
-                <CardItem img={item5} />
-                <CardItem img={item6} />
+            {
+                items.map((item, index) =>
+                    <CardItem 
+                        id={item.id}
+                        key={index} 
+                        img={item.gambar1.path} 
+                        img2={item.gambar2.path} 
+                        nameItem={item.name} 
+                        price={item.harga}
+                        diskon={item.sale == 1 ? true : false }
+                        jumlah_diskon={item.jumlah_sale} 
+                    />
+                )
+            }
             </div>
+            :
+            <span>Item Tidak Ditemukan</span>
+        }
             <div>pagination</div>
         </div>
     )

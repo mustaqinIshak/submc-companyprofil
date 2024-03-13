@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import handleChangeRupiah from "../helpers/handleChangRupiah";
+import './cardItem.css'
 
-function CardItem ({img, img2,nameItem = "no-name", price="Rp. 0", diskon=false, jumlah_diskon=0}) {
+function CardItem ({id, img, img2,nameItem = "no-name", price="Rp. 0", diskon=false, jumlah_diskon=0}) {
 
     const handleDiskon = () => {
         if(diskon) {
@@ -23,16 +24,13 @@ function CardItem ({img, img2,nameItem = "no-name", price="Rp. 0", diskon=false,
     } 
 
     return(
-    <Link to={'/detailProduk'} className="w-full h-auto mb-[30px] max-w-sm bg-white group">  
+    <Link to={`/${nameItem}/${id}`} className="linkstyle w-full h-auto mb-[30px] max-w-sm bg-white group ">  
         <div className="relative overflow-hidden">
             <img className="w-full h-auto laptop:p-8 " src={img} alt="product image" />
-            <img className="absolute h-full w-full laptop:p-8  group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition ease-in-out duration-500" src={img2} alt="produk image" />
+            <img className="absolute h-full w-full laptop:p-8 group-hover:no-underline group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition ease-in-out duration-500" src={img2} alt="produk image" />
         </div>
-        <div className="px-5 pb-5">
-            <span>
-                <h5 className=" laptop:text-[12px] text-center font-semibold tracking-tight text-gray-900 dark:text-white">{nameItem}</h5>
-            </span>
-           
+        <div className="px-5 pb-5 ">
+            <h5 className="laptop:text-[12px] text-center font-semibold tracking-tight text-gray-900 dark:text-white">{nameItem}</h5>       
             {
                 handleDiskon()
             }
