@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
-import {getCategories} from '../../api/product'
-function SelectCategory({title ,value, setValue,}) {
+import {getSubCategories} from '../../api/product'
+function SelectSubCategory({title ,value, setValue, category}) {
     const [data, setData] = useState([])
 
     const loadOption = async () => {
@@ -9,7 +9,10 @@ function SelectCategory({title ,value, setValue,}) {
                 id: "0", 
                 label:"All"
             }]
-            const response = await getCategories()
+            const payload = {
+                id: category.id
+            }
+            const response = await getSubCategories(payload)
             if(response) {
                 response.map((item) => {
                     const payload = {
@@ -22,14 +25,14 @@ function SelectCategory({title ,value, setValue,}) {
             }
         }
         catch(err) {
-            console.log(err.message)
+            console.log(err)
         }
     };
     
     
     useEffect( () => {
       loadOption()
-    },[])
+    },[category])
     
     const handleOption = (e) => {
         const obj= JSON.parse(e.target.value)
@@ -54,4 +57,4 @@ function SelectCategory({title ,value, setValue,}) {
     )
 }
 
-export default SelectCategory;
+export default SelectSubCategory;

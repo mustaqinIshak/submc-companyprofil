@@ -28,6 +28,7 @@ async function getSelectedProduct(payload) {
 }
 
 async function getProductByCategories(payload) {
+    console.log(payload)
     try{
         const result = await instance({
             method: 'post',
@@ -86,6 +87,7 @@ async function getSubCategories(payload) {
             headers: {
                 "Access-Control-Allow-Origin": "*",
             },
+            data: payload
         })
         if(result.data.status) {
             return result.data.data
