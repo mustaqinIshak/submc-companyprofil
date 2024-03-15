@@ -27,12 +27,11 @@ async function getSelectedProduct(payload) {
     }
 }
 
-async function getProductByCategories(payload) {
-    console.log(payload)
+async function getProductByCategories(payload, page) {
     try{
         const result = await instance({
             method: 'post',
-            url:'/productByCategorie',
+            url:`/productByCategorie?page=${page}`,
             headers: {
                 "Access-Control-Allow-Origin": "*",
             },
@@ -54,7 +53,7 @@ async function getProductByCategories(payload) {
     }
 }
 
-async function getCategories(payload) {
+async function getCategories() {
     try{
         const result = await instance({
             method: 'post',

@@ -1,13 +1,23 @@
+import { useEffect } from "react";
 import LoadingSpinner from "../loadingSpinner"
 import CardItem from "../cardItem"
 
-function ListItemShop({items, loading}) {
+function ListItemShop({items, loading, setPage}) {
+    const handleScroll = () => {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            setPage(prevPage => prevPage + 1);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return(
         <div className="flex flex-col items-center justify-center laptop:mx-[90px] mb-[100px] overflow-hidden">
         {
-            loading ?
-            <LoadingSpinner />
-            :
             items.length !== 0 ?
             <div className=" grid grid-cols-2 laptop:grid-cols-3">
             {
@@ -25,10 +35,17 @@ function ListItemShop({items, loading}) {
                 )
             }
             </div>
-            :
-            <span>Item Tidak Ditemukan</span>
+            :           
+            <div className="h-screen w-full flex items-center">
+                <span>Item Not Found</span>
+            </div>
         }
-            <div>pagination</div>
+        {
+
+         loading &&
+                <LoadingSpinner />
+        }
+            
         </div>
     )
 }

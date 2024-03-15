@@ -33,7 +33,6 @@ function SelectCategory({title ,value, setValue,}) {
     
     const handleOption = (e) => {
         const obj= JSON.parse(e.target.value)
-        console.log(JSON.parse(e.target.value))
         setValue(prevState => ({
             ...prevState,
             id:  Number(obj.id),

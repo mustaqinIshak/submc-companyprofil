@@ -7,6 +7,7 @@ import ListItemShop from "../../components/list-item-shop/listItemShop";
 
 function Shop() {
     const [products, setProducts] = useState([])
+    const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true)
     const [category, setCategory] = useState({id: 0, label: "All"})
     const [subCategory, setSubCategory] = useState({id: 0, label: "All"})
@@ -19,17 +20,25 @@ function Shop() {
         if(subCategory.id !== 0) {
             payload["idSubCategorie"] = subCategory.id
         }
-        const result = await getProductByCategories(payload)
-
-        if(result) {
-            setProducts([...result])
+        const result = await getProductByCategories(payload, page)
+        if(result.data && page === 1) {
+            setProducts([...result.data])
+        }
+        else if(result.data) {
+            setProducts(prevData => [...prevData, ...result.data])
+        } else {
+            setPage(prevPage => prevPage)
         }
         setLoading(false)
     }
+    useEffect(() => {
+        setPage(1)
+        handleGetProduct()
+    },[category, subCategory])
 
     useEffect(() => {
         handleGetProduct()
-    },[category, subCategory])
+    },[page])
     return(
         <div className="flex flex-col items-center">
             {/* category selection */}
@@ -43,7 +52,7 @@ function Shop() {
                 </form>
             </div>
       
-            <ListItemShop items={products} loading={loading} />
+            <ListItemShop items={products} loading={loading} setPage={setPage} />
         </div>
     )
 }

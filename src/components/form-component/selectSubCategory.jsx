@@ -31,7 +31,8 @@ function SelectSubCategory({title ,value, setValue, category}) {
     
     
     useEffect( () => {
-      loadOption()
+        setValue({...data[0]})
+        loadOption()
     },[category])
     
     const handleOption = (e) => {
