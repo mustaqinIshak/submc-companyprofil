@@ -3,6 +3,7 @@ import { getIndex } from "../../api/newItem"
 import LoadingSpinner from "../loadingSpinner"
 import CardItem from "../cardItem"
 import ButtonDefault from "../buttons/buttonDefault"
+import { Link } from "react-router-dom"
 
 function ListNewItem() {
     const [items, setItems] = useState([])
@@ -51,7 +52,9 @@ function ListNewItem() {
                         }
                     </div>
                     <div>
-                        <ButtonDefault name={"All New Item"} />
+                        <Link to={"/shop"}>
+                            <ButtonDefault name={"All New Item"} />
+                        </Link>
                     </div>
                 </div>
                 :
