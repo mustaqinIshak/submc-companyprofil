@@ -1,4 +1,6 @@
 function Footer() {
+    let profileCompany = JSON.parse(localStorage.getItem("profileCompany")) 
+
     return(
         <div className="w-full border-t-[1px] border-t-[#cccccc]">
             <div className="md:w-[1200px] pb-[100px] py-[35px] mx-auto">
@@ -70,7 +72,7 @@ function Footer() {
                                 <dd>
                                     <ul className="mx-[1.25rem]">
                                         <li>
-                                            <span className="text-[11px] text-[#ccc] hover:cursor-pointer" >CMM APPAREL SITE</span>
+                                            <span className="text-[11px] text-[#ccc] hover:cursor-pointer" >{profileCompany ? profileCompany.name : "Crasher"}</span>
                                         </li>
                                         <li>
                                             <span className="text-[11px] text-[#ccc] hover:cursor-pointer" >TERMS OF USE</span>
@@ -95,7 +97,7 @@ function Footer() {
                                     min-w-[85px]
                                     hover:cursor-pointer
                                     ">
-                                        ADDRESS: Jl. Mannga 2. no.15
+                                        ADDRESS: {profileCompany ? profileCompany.alamat : ""}
                                 </dt>
                                 <dt className="
                                     underline 
@@ -111,7 +113,7 @@ function Footer() {
                                     min-w-[85px]
                                     hover:cursor-pointer
                                     ">
-                                        PHONE NUMBER: 08212345678
+                                        PHONE NUMBER: {profileCompany ? profileCompany["nomor_hp"] : ""}
                                 </dt>
                                 <dd>
                                     <ul className="mx-[1.25rem]">

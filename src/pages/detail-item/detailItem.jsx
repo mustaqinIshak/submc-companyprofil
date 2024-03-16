@@ -100,6 +100,23 @@ function DetailItem() {
                                     {selectedProduct.deskripsi}
                                 </p>
                             </div>
+                            {/* sizes */}
+                            <div className="pt-[24px] mt-[40px] border-t-[1px] border=[#d3d3d3] flex flex-col gap-6">
+                                <span className="text-[12px] leading-[15px] laptop:leading-[18px] laptop:text-[15px]">Size : </span>
+                                <ul className="flex flex-row gap-10">
+                                    {
+                                        selectedProduct.sizes ? 
+                                        selectedProduct.sizes.map((item, index) => 
+                                            
+                                                item.jumlah !== "0" &&
+                                                <li key={index}><span>{item.name}</span></li>
+                                            
+                                        )
+                                        :
+                                        <li>All Size</li>
+                                    }
+                                </ul>
+                            </div>
                             {/* button */}
                             <div className="flex flex-col gap-4 pt-[24px] mt-[40px] border-t-[1px] border=[#d3d3d3]">
                                 <ButtonShoope name={selectedProduct.name} linkUrl={selectedProduct["link_shoope"]} />

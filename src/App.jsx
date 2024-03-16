@@ -1,15 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react'
+import { getIndex } from './api/profileCompany'
 import './App.css'
 import Navbar from './components/navbar'
-import Home from './pages/home/home'
 import Footer from './components/footer/footer'
 import { Outlet } from 'react-router-dom'
 import Breadcrumb from './components/breadcrumb'
 
 function App() {
-  const [count, setCount] = useState(0)
+  let profileCompany = localStorage.getItem('profileCompany')
+
+  const handleGetInfoProfileCompany = async () => {
+    if (!profileCompany) {
+      const result = await getIndex()
+
+      if(result) {
+        localStorage.setItem("profileCompany", JSON.stringify(result))
+      }
+    }
+  }
+
+  useEffect(() => {
+    handleGetInfoProfileCompany()
+  },[])
 
   return (
     <div className='bg-white text-black'>

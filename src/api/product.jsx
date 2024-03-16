@@ -10,7 +10,7 @@ async function getSelectedProduct(payload) {
             },
             data: payload
         })
-        console.log(result)
+       
         if(result.data.status) {
             return result.data.data
         } else {
