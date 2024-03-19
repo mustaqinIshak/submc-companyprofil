@@ -94,12 +94,7 @@ function DetailItem() {
                                 {handleDiskon(selectedProduct.sale ,selectedProduct.jumlah_sale, selectedProduct.harga)}
                             </div>
                             {/* description */}
-                            <div className="pt-[24px] mt-[40px] border-t-[1px] border=[#d3d3d3]">
-                                <p>
-                                    {/* Description:  */}
-                                    {selectedProduct.deskripsi}
-                                </p>
-                            </div>
+                            <div className="pt-[24px] mt-[40px] border-t-[1px] border=[#d3d3d3]" dangerouslySetInnerHTML={{ __html: selectedProduct.deskripsi }} />
                             {/* sizes */}
                             <div className="pt-[24px] mt-[40px] border-t-[1px] border=[#d3d3d3] flex flex-col gap-6">
                                 <span className="text-[12px] leading-[15px] laptop:leading-[18px] laptop:text-[15px]">Size : </span>
