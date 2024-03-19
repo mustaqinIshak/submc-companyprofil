@@ -7,11 +7,9 @@ import { getSelectedProduct } from "../../api/product";
 import { useParams } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import LoadingSpinner from "../../components/loadingSpinner";
-import ImageGallery from "react-image-gallery";
-import Rater from "react-rater";
 import "./detailItem.css"
 function DetailItem() {
-    let { id } = useParams();
+    let { name, id } = useParams();
     const location = useLocation();
     const [loading, setLoading] = useState (false)
     const [selectedProduct, setSelectedProduct] = useState({})
