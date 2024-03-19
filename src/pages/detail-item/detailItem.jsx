@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom';
 import LoadingSpinner from "../../components/loadingSpinner";
 import "./detailItem.css"
 function DetailItem() {
-    let { name, id } = useParams();
+    let { id } = useParams();
     const location = useLocation();
     const [loading, setLoading] = useState (false)
     const [selectedProduct, setSelectedProduct] = useState({})
