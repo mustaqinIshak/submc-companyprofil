@@ -10,7 +10,7 @@ function ListItemShop({items, loading, setPage}) {
     };
 
     useEffect(() => {
-        if(items.length >= 10) {
+        if(items.length >= 9) {
             window.addEventListener('scroll', handleScroll);
             return () => {
                 window.removeEventListener('scroll', handleScroll);
