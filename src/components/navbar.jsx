@@ -25,7 +25,7 @@ function Navbar() {
                         <ul className="w-full h-11 text-center ">
                             <Link to={"/"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">HOME</Link>
                             <Link to={"/shop"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">SHOP</Link>
-                            <Link to={"/lookbook"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">LOOKBOOK</Link>
+                            {/* <Link to={"/lookbook"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">LOOKBOOK</Link> */}
                             <Link to={"/about-us"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">ABOUT</Link>
                             <Link to={"/crasher-music-merchandise"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">CRASHER MUSIC MERCHANDISE</Link>
                         </ul>

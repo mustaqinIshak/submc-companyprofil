@@ -10,21 +10,14 @@ function ListItemShop({items, loading, setPage}) {
     };
 
     useEffect(() => {
-        if(items.length >= 9) {
-            window.addEventListener('scroll', handleScroll);
-            return () => {
-                window.removeEventListener('scroll', handleScroll);
-            };
-        }
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
     return(
         <div className="flex flex-col items-center justify-center laptop:mx-[90px] mb-[100px] overflow-hidden">
         {
-            loading ? 
-            <div className="w-full h-screen">
-                <LoadingSpinner />
-            </div>
-            :
             items.length !== 0 ?
             <div className=" grid grid-cols-2 laptop:grid-cols-3">
             {
@@ -46,7 +39,13 @@ function ListItemShop({items, loading, setPage}) {
             <div className="h-screen w-full flex items-center">
                 <span>Item Not Found</span>
             </div>
-        }   
+        }
+        {
+
+         loading &&
+                <LoadingSpinner />
+        }
+            
         </div>
     )
 }
