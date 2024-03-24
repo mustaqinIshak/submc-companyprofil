@@ -133,11 +133,12 @@ async function getCrasherMusicMerchandiseProducts(payload) {
     try{
         const result = await instance({
             method: 'post',
-            url:'/productByCrasherMusicMerchandise',
+            url:`/productByCrasherMusicMerchandise?page=${payload}`,
             headers: {
                 "Access-Control-Allow-Origin": "*",
             },
         })
+       
         if(result.data.status) {
             return result.data.data
         } else {

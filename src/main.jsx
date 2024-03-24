@@ -10,6 +10,8 @@ import Home from './pages/home/home.jsx'
 import ErrorPage from './pages/404/errorPage.jsx'
 import Shop from './pages/shop/shop.jsx'
 import DetailItem from './pages/detail-item/detailItem.jsx'
+import AboutUs from './pages/about/aboutUs.jsx'
+import CrasherMusicMerchandise from './pages/crasherMusicMerchandise/crasherMusicMerchandise.jsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
      
         path: "/detail-product/id/:id",
         element:<DetailItem />
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />
+      },
+      {
+        path: "/crasher-music-merchandise",
+        element: <CrasherMusicMerchandise />
       }
     ]
   }
