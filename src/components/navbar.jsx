@@ -28,6 +28,7 @@ function Navbar() {
                             {/* <Link to={"/lookbook"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">LOOKBOOK</Link> */}
                             <Link to={"/about-us"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">ABOUT</Link>
                             <Link to={"/crasher-music-merchandise"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">CRASHER MUSIC MERCHANDISE</Link>
+                            <Link to={"/cmm-apparel"} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer">CMM Apparel</Link>
                         </ul>
                     </nav>
 

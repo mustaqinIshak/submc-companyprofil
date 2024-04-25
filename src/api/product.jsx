@@ -108,7 +108,7 @@ async function getCmmApparelProducts(payload) {
     try{
         const result = await instance({
             method: 'post',
-            url:'/productByCmmApparel',
+            url:`/productByCmmApparel?page=${payload}`,
             headers: {
                 "Access-Control-Allow-Origin": "*",
             },

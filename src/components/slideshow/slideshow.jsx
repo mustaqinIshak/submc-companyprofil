@@ -1,10 +1,11 @@
-import {React, useEffect, useState } from "react";
+import {React, useEffect, useState, useRef } from "react";
 import { getIndex } from "../../api/bannerHome";
 import slide1 from "../../assets/slideshow/SLIDE1.jpg"
 import slide2 from "../../assets/slideshow/SLIDE2.jpg"
 import slide3 from "../../assets/slideshow/SLIDE3.jpg"
 import "./slideshow.css";
 import { Link } from "react-router-dom";
+import style from "./slideshow.module.sass"
 
 const dataSlideshow = [
     {
@@ -22,9 +23,27 @@ const dataSlideshow = [
 ]
 function SlideShow() {
     const [bannerHomes, setBannerHomes] = useState([])
-    const [indexImage, setIndexImage] = useState(0)
-    const [pause, setPause] = useState(false);
-    const [css, setCss] = useState(true)
+    const [activeImage, setActiveImage] = useState(0);
+    const ImageScroll = useRef([]);
+
+    // function scrollToImage(imageNumber) {
+    //     const ref = GetRefByImageNumber(imageNumber);
+    //     console.log(ref)
+    //     if (ref) {
+    //         ref.scrollIntoView({
+    //         behavior: "smooth",
+    //       });
+    //     }
+    // }
+
+    // function GetRefByImageNumber(imageNumber) {
+    //     return ImageScroll.current[imageNumber]
+    //   }
+
+    function handleScrollImage(index) {
+        setActiveImage(index);
+        scrollToImage(index);
+    }
 
     const handleGetBannerHome = async () => {
         try {
@@ -39,49 +58,68 @@ function SlideShow() {
             console.log(error)
         }
     }
-    const handdlehangeImage = () => {
-        setCss(false)
-        setIndexImage(indexImage => {
-            if(indexImage === bannerHomes.length - 1) {
-                return 0
-            } else {
-                return indexImage + 1
-            }
-        }) 
-        setCss(true)
+//     const handdlehangeImage = () => {
+//         setCss(false)
+//         setIndexImage(indexImage => {
+//             if(indexImage === bannerHomes.length - 1) {
+//                 return indexImage - (bannerHomes.length - 1)
+//             } else {
+//                 return indexImage + 1
+//             }
+//         }) 
+//         setCss(true)
    
-    }
+//     }
 
     useEffect(() => {
         handleGetBannerHome()
     },[])
 
     useEffect(() => {
-        let interval = setInterval(() => {
-          if (!pause) {
-            handdlehangeImage();
-          } else {
-            clearInterval(interval);
-        }
-        // console.log(indexImage)
-        }, 5000);
-        return () => clearInterval(interval);
-      },[]);
+        const intervalId = setInterval(() => {
+            if(activeImage === (bannerHomes.length - 1) ) {
+                    setActiveImage(0);
+                    // scrollToImage(0);
+            } else {
+                const nextImage = (activeImage % (bannerHomes.length - 1) ) + 1; // Assuming have 3 images. Adjust Accordingly
+              setActiveImage(nextImage);
+            //   scrollToImage(nextImage);
+          }
+        }, 3000);
+    
+        return () => clearInterval(intervalId);
+      }, [activeImage]);
 
     return (
-        <div id="carouselFade" className="mb-[110px] w-full carousel slide carousel-fade" data-ride="carousel" onClick={() => handdlehangeImage()}>
-            <div className="carousel-inner">
+        <div id="carouselFade" className={style.wrapper}  data-ride="carousel" >
+            {/* add new nav block */}
+            <nav className={style.carousel__navigation}> 
+                {
+                    bannerHomes.map((item,index) => 
+                        <div key={index} className={
+                            activeImage === index
+                              ? `${style.nav_item} ${style.active}`
+                              : `${style.nav_item}`
+                          } onClick={() => handleScrollImage(index)}></div>
+                    )
+                }
+            </nav>
+            <ul className={style.carousel_inner}>
                 {
                     bannerHomes.map((item,index) => 
                         bannerHomes.link ?
-                        <Link key={index} to={item.link}>
-                            <img  className={index === indexImage ? "item active" : "item"}  src={item.gambar} />
-                        </Link>
+                        <li key={index} className={style.carousel_inner__item} style={{ transform: `translateX(-${activeImage * 100}%)` }} >
+                            <Link  to={item.link}>
+                                    <img src={item.gambar} ref={el => ImageScroll.current[index] = el}/>
+                            </Link>
+                        </li>
                         :
-                        <img key={index} className={index === indexImage ? "item active" : "item"}  src={item.gambar} />
+                        <li key={index} className={style.carousel_inner__item } style={{ transform: `translateX(-${activeImage * 100}%)` }} >
+                            <img src={item.gambar} ref={el => ImageScroll.current[index] = el} />
+                        </li>
                     )
                 }
-            </div>
+            </ul>
         </div>
     )
 }

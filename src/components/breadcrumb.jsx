@@ -28,7 +28,7 @@ function Breadcrumb () {
             <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li>
                     <div className="flex items-center">
-                        <Link to={"/"} className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">CMM Apparel</Link>
+                        <Link to={"/"} className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Crasher Official</Link>
                     </div>
                 </li>
                {crumbs}

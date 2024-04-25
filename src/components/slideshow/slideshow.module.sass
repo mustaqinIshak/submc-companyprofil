@@ -1,0 +1,52 @@
+// CarouselInner.module.scss
+
+.wrapper 
+  // --------------- Start of Navigation -------------------//
+
+  position: relative // Add this code
+
+  .carousel__navigation
+     position: absolute
+     bottom: 0%
+     left: 50%
+     transform: translateX(-50%)
+     z-index: 10 // this is important - Add this code (1)
+     display: flex // Add this code
+     justify-content: space-between // Add this code
+     width: 250px // Add this code
+     padding: 2em // Add this code
+
+     .nav_item  // Add this code block
+       width: 50px
+       height: 8px
+       background-color: rgba($color: #000000, $alpha: 0.6)
+       border-radius: 20px
+       cursor: pointer
+     .nav_item.active  // and add this code block
+       background-color: white
+    
+    
+
+  // --------------- End of Navigation -------------------//
+
+.carousel_inner 
+  list-style: none
+   margin: 0
+  padding: 0
+  display: flex // (1)
+  max-height: 100vh // (2)
+  overflow-x: hidden
+  
+
+  &__item  // (3)
+    transition: 0.3s ease-in-out
+    img 
+      height: 100% // (4)
+      min-width: 100vw // (4)
+      width: 100% // (4)
+      object-fit: cover // (5)
+      background-size: cover // (5)
+      background-position: center // (5)
+      
+    
+  

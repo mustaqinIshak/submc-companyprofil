@@ -1,5 +1,23 @@
+import { useState, useEffect } from "react"
+import { getIndex } from '../../api/profileCompany'
+
+
 function Footer() {
-    let profileCompany = JSON.parse(localStorage.getItem("profileCompany")) 
+    const [profileCompany, setProfileCompany] = useState({})
+
+    const handleGetInfoProfileCompany = async () => {
+      
+        const result = await getIndex()
+  
+        if(result) {
+          setProfileCompany({...result})
+        }
+      
+    }
+  
+    useEffect(() => {
+      handleGetInfoProfileCompany()
+    },[])
 
     return(
         <div className="w-full border-t-[1px] border-t-[#cccccc]">

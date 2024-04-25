@@ -26,7 +26,7 @@ function ListNewItem() {
         getNewItem()
     },[])
     return(
-        <div className="flex flex-col items-center justify-center laptop:mx-[90px] mb-[100px]">
+        <div className="flex flex-col items-center justify-center mt-12 laptop:mx-[90px] mb-[100px]">
             {
                 loading ?
                 <LoadingSpinner />
