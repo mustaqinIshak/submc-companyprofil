@@ -1,9 +1,13 @@
 function ButtonWhatsapp ({name, location}) {
-    let profileCompany = JSON.parse(localStorage.getItem("profileCompany"))
-    let numberPhone = profileCompany["nomor_hp"]
-    const result = numberPhone.replace(/\s/g, "")
+    // let profileCompany = JSON.parse(localStorage.getItem("profileCompany"))
+    // let numberPhone = profileCompany["nomor_hp"]
+    // const result = numberPhone.replace(/\s/g, "")
     return(
-        <a href={`https://wa.me/${profileCompany ? result : "+6282194593969"}/?text=https://submc-companyprofil.vercel.app${location.pathname}`} target="blank">
+        <a 
+            // href={`https://wa.me/${profileCompany ? result : "+6282194593969"}/?text=https://submc-companyprofil.vercel.app${location.pathname}`} 
+            href={`https://wa.me/+6282188867819/?text=https://submc-companyprofil.vercel.app${location.pathname}`} 
+            target="blank"
+        >
             <span type="button" 
                 className="
                     text-center
