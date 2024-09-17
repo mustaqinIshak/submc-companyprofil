@@ -13,6 +13,7 @@ import DetailItem from './pages/detail-item/detailItem.jsx'
 import AboutUs from './pages/about/aboutUs.jsx'
 import CrasherMusicMerchandise from './pages/crasherMusicMerchandise/crasherMusicMerchandise.jsx'
 import CmmApparel from './pages/cmmApparel/cmmApparel.jsx'
+import CatalogueByBrand from './pages/catalogueByBrands/catalogueByBrand.jsx'
 
 const router = createBrowserRouter([
   {
@@ -42,9 +43,13 @@ const router = createBrowserRouter([
         element: <CrasherMusicMerchandise />
       },
       {
-        path: "cmm-apparel",
+        path: "/cmm-apparel",
         element: <CmmApparel />
       },
+      {
+        path: "/brand/:name/:id",
+        element: <CatalogueByBrand />
+      }
     ]
   }
 ])

@@ -15,7 +15,7 @@ async function getIndex() {
             throw result.data
         }
     }
-    catch {
+    catch (error) {
      
         const message = []
         if(error.message) {

@@ -12,7 +12,6 @@ function ListNewItem() {
         setLoading(true)
         try {
             const result = await getIndex()
-            console.log('ini hasil result', result)
             if(result) {
                 setItems([...result])
             }

@@ -17,7 +17,7 @@ async function getSelectedProduct(payload) {
             throw result.data
         }
     }
-    catch {
+    catch (error) {
      
         const message = []
         if(error.message) {
@@ -43,7 +43,7 @@ async function getProductByCategories(payload, page) {
             throw result.data
         }
     }
-    catch {
+    catch (error) {
      
         const message = []
         if(error.message) {
@@ -68,7 +68,7 @@ async function getCategories() {
             throw result.data
         }
     }
-    catch {
+    catch (error) {
      
         const message = []
         if(error.message) {
@@ -94,7 +94,7 @@ async function getSubCategories(payload) {
             throw result.data
         }
     }
-    catch {
+    catch (error) {
      
         const message = []
         if(error.message) {
@@ -111,7 +111,7 @@ async function getCmmApparelProducts(payload) {
             url:`/productByCmmApparel?page=${payload}`,
             headers: {
                 "Access-Control-Allow-Origin": "*",
-            },
+            }
         })
         if(result.data.status) {
             return result.data.data
@@ -119,7 +119,7 @@ async function getCmmApparelProducts(payload) {
             throw result.data
         }
     }
-    catch {
+    catch (error) {
      
         const message = []
         if(error.message) {
@@ -145,7 +145,37 @@ async function getCrasherMusicMerchandiseProducts(payload) {
             throw result.data
         }
     }
-    catch {
+    catch (error) {
+     
+        const message = []
+        if(error.message) {
+            message.push(message)
+        }
+        throw message
+    }
+}
+
+async function getProductByBrand(id, payload) {
+    console.log('ini d get by brand',id, payload)
+    try{
+        const result = await instance({
+            method: 'post',
+            url:`/brand?page=${payload}`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
+            data: {
+                id: id
+            }
+        })
+       
+        if(result.data.status) {
+            return result.data.data
+        } else {
+            throw result.data
+        }
+    }
+    catch (error) {
      
         const message = []
         if(error.message) {
@@ -162,4 +192,5 @@ export {
     getSubCategories,
     getCmmApparelProducts,
     getCrasherMusicMerchandiseProducts,
+    getProductByBrand,
 }
