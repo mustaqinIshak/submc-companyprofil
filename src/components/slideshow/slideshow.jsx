@@ -1,26 +1,13 @@
 import {React, useEffect, useState, useRef } from "react";
 import { getIndex } from "../../api/bannerHome";
-import slide1 from "../../assets/slideshow/SLIDE1.jpg"
-import slide2 from "../../assets/slideshow/SLIDE2.jpg"
-import slide3 from "../../assets/slideshow/SLIDE3.jpg"
+// import slide1 from "../../assets/slideshow/SLIDE1.jpg"
+// import slide2 from "../../assets/slideshow/SLIDE2.jpg"
+// import slide3 from "../../assets/slideshow/SLIDE3.jpg"
+import default_slide from "../../assets/slideshow/banner_tagline.png";
 import "./slideshow.css";
 import { Link } from "react-router-dom";
 import style from "./slideshow.module.sass"
 
-const dataSlideshow = [
-    {
-        gambar: slide1,
-        link: ""
-    },
-    {
-        gambar: slide2,
-        link: ""
-    },
-    {
-        gambar: slide3,
-        link: ""
-    },
-]
 function SlideShow() {
     const [bannerHomes, setBannerHomes] = useState([])
     const [activeImage, setActiveImage] = useState(0);
@@ -48,11 +35,8 @@ function SlideShow() {
     const handleGetBannerHome = async () => {
         try {
             const result = await getIndex()
-            if(result.length) {
-                setBannerHomes([...result])
-            } else {
-                setBannerHomes([...dataSlideshow])
-            }
+            setBannerHomes([...result])
+            if(result.length)
             console.log(result)
         } catch (error) {
             console.log(error)
@@ -104,7 +88,9 @@ function SlideShow() {
                     )
                 }
             </nav>
-            <ul className={style.carousel_inner}>
+            {
+                bannerHomes.length ? 
+                <ul className={style.carousel_inner}>
                 {
                     bannerHomes.map((item,index) => 
                         bannerHomes.link ?
@@ -119,7 +105,12 @@ function SlideShow() {
                         </li>
                     )
                 }
-            </ul>
+                </ul>
+                :
+                <img src={default_slide}/>
+                
+            }
+            
         </div>
     )
 }

@@ -11,7 +11,6 @@ function Navbar() {
     const getAllBrands = async () => {
         const result = await getBrands()
         if(result) {
-            console.log('ini d navbar',result)
             setBrands([...result])
         }
     }
