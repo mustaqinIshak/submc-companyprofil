@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         element: <CmmApparel />
       },
       {
-        path: "/brand/:name/:id",
+        path: "/brands/:name/:id",
         element: <CatalogueByBrand />
       }
     ]

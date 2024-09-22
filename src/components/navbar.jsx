@@ -52,7 +52,7 @@ function Navbar() {
                             <ul className={`${!showBrands ? "hidden" : "z-10 mt-5 text-[12px]"}`} aria-labelledby="dropdownBrandButton">
                                 {
                                     brands.length !== 0 ? brands.map((item, index) => 
-                                        <Link key={index} to={`/brand/${item.name}/${item.id}`} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer uppercase">
+                                        <Link key={index} to={`/brands/${item.name}/${item.id}`} className="text-black font-normal hover:text-slate-600 inline-block mx-4 cursor-pointer uppercase">
                                             {item.name}
                                         </Link>
                                     )
