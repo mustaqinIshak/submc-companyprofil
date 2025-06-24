@@ -7,6 +7,9 @@ import { Outlet } from 'react-router-dom'
 import Breadcrumb from './components/breadcrumb'
 
 function App() {
+  const openInNewTab = (url) => {
+    window.open(url, "_blank", "noreferrer");
+  };
   return (
     <div className='bg-white text-black'>
       <Navbar />
@@ -15,6 +18,11 @@ function App() {
           <Outlet />
         </div>
       <Footer />
+      <div className="fixed z-30 bottom-0 right-0">
+        <div className='p-8 cursor-pointer' onClick={() => openInNewTab("https://wa.me/6282188867819")}>
+          <img src="/waLogo.png" width={60} height={60} />
+        </div>
+      </div>
     </div>
   )
 }
