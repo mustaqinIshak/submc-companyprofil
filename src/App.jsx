@@ -13,7 +13,7 @@ function App() {
   return (
     <div className='bg-white text-black'>
       <Navbar />
-        <div className='mt-[188px]'>
+        <div className='pt-[90px] laptop:pt-[115px]'>
           <Breadcrumb />
           <Outlet />
         </div>

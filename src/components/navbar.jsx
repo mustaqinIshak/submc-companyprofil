@@ -48,8 +48,8 @@ function Navbar() {
     },[])
 
     return(
-        <header className={`fixed w-full z-50 top-0 start-0 transition-all duration-300 ${scrollNavbar ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-3" : "bg-white py-6 laptop:py-8"}`}>
-            <div className="w-full max-w-7xl mx-auto px-4 laptop:px-8 flex flex-col items-center gap-4 laptop:gap-6">
+        <header className={`fixed w-full z-50 top-0 start-0 transition-all duration-300 ${scrollNavbar ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-2" : "bg-white pt-6 laptop:pt-8 pb-3 laptop:pb-4"}`}>
+            <div className="w-full max-w-7xl mx-auto px-4 laptop:px-8 flex flex-col items-center gap-3 laptop:gap-4">
                 
                 {/* Logo Area */}
                 <Link to="/" className="flex items-center justify-center">
