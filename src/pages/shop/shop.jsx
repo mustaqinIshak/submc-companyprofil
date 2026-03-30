@@ -32,6 +32,7 @@ function Shop() {
         setLoading(false)
     }
     useEffect(() => {
+        window.scrollTo(0, 0)
         setPage(1)
         handleGetProduct()
     },[category, subCategory])

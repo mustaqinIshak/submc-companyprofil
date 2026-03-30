@@ -28,6 +28,7 @@ function CatalogueByBrand() {
 
     // Effect for brand change
     useEffect(() => {
+        window.scrollTo(0, 0)
         setProducts([])
         setPage(1)
         handleGetProduct(1, id)
