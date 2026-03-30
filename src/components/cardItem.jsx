@@ -11,32 +11,39 @@ function CardItem ({id, img, img2,nameItem = "no-name", price="Rp. 0", diskon=fa
             let diskonAmount = (persenDiskon / 100) * hargaAwal;
             let hargaSetelahDiskon = hargaAwal - diskonAmount;
             return(
-                <div className="text-center w-full flex flex-col">
-                    <del className="text-red-700 text-[12px] ">{handleChangeRupiah(hargaAwal)}</del>
-                    <span className="text-[17px] font-bold text-gray-900 dark:text-white">{handleChangeRupiah(hargaSetelahDiskon)}</span>
+                <div className="text-center w-full flex flex-col mt-2 gap-1">
+                    <del className="text-gray-400 text-xs font-medium">{handleChangeRupiah(hargaAwal)}</del>
+                    <span className="text-lg font-bold text-gray-900">{handleChangeRupiah(hargaSetelahDiskon)}</span>
                 </div>
             )
         } else {
-            <div className="text-center w-full">
-                <span className="text-[12px] font-bold text-gray-900 dark:text-white">{handleChangeRupiah(price)}</span>
-            </div>
+            return (
+                <div className="text-center w-full mt-2">
+                    <span className="text-lg font-semibold text-gray-900">{handleChangeRupiah(price)}</span>
+                </div>
+            )
         }
     } 
 
     return(
-    <Link to={`/detail-product/${nameItem}/${id}`} className="linkstyle w-full h-auto mb-[30px] max-w-sm bg-white group ">  
-        <div className="relative overflow-hidden">
-            <img className="w-full h-auto laptop:p-8 " src={img} alt="product image" />
-            <img className="absolute h-full w-full laptop:p-8 group-hover:no-underline group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition ease-in-out duration-500" src={img2} alt="produk image" />
+    <Link to={`/detail-product/${nameItem}/${id}`} className="group relative flex w-full flex-col overflow-hidden rounded-xl bg-white transition-all duration-300 hover:shadow-lg border border-gray-100 mb-8 mx-auto max-w-sm">  
+        <div className="relative overflow-hidden aspect-[4/5] bg-gray-50 flex items-center justify-center">
+            {diskon && (
+                <div className="absolute top-3 left-3 z-20 rounded-full bg-red-600 px-3 py-1 text-xs font-bold text-white shadow-sm">
+                    {jumlah_diskon}% OFF
+                </div>
+            )}
+            <img className="absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-in-out group-hover:opacity-0" src={img} alt="product image" />
+            <img className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100" src={img2} alt="product internal view" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
         </div>
-        <div className="px-5 pb-5 ">
-            <h5 className="laptop:text-[12px] text-center font-semibold tracking-tight text-gray-900 dark:text-white">{nameItem}</h5>       
+        <div className="flex flex-col items-center px-4 py-5 bg-white">
+            <h5 className="text-sm laptop:text-base font-semibold tracking-wide text-gray-800 uppercase line-clamp-1">{nameItem}</h5>       
             {
                 handleDiskon()
             }
         </div>
     </Link>
- 
     )
 }
 

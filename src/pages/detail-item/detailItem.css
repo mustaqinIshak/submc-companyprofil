@@ -8,3 +8,13 @@
 .title-produk {
     font-family: 'MyFont';
 }
+
+.thumbnail-container {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .thumbnail-container {
+        display: flex;
+    }
+}

@@ -40,16 +40,20 @@ function Shop() {
         handleGetProduct()
     },[page])
     return(
-        <div className="flex flex-col items-center">
-            {/* category selection */}
-            <div className="">
-                <form className="w-full flex flex-col laptop:flex-row">
-                    <SelectCategory title={"Category"}  value={category} setValue={setCategory}   />
-                    {
-                        category.id !== 0 &&
-                        <SelectSubCategory title={"Sub Category"}  value={subCategory} setValue={setSubCategory} category={category}   />
-                    }
-                </form>
+        <div className="flex flex-col items-center min-h-screen bg-gray-50 pt-8">
+            {/* Page Header */}
+            <div className="w-full bg-white shadow-sm border-b border-gray-200 py-6 mb-4">
+                <div className="max-w-7xl mx-auto px-4 laptop:px-8 flex flex-col gap-4">
+                    <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">SHOP</h1>
+                    {/* category selection */}
+                    <form className="flex flex-col laptop:flex-row gap-4 items-center">
+                        <SelectCategory title={"Category"}  value={category} setValue={setCategory}   />
+                        {
+                            category.id !== 0 &&
+                            <SelectSubCategory title={"Sub Category"}  value={subCategory} setValue={setSubCategory} category={category}   />
+                        }
+                    </form>
+                </div>
             </div>
       
             <ListItemShop items={products} loading={loading} setPage={setPage} />
