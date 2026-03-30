@@ -12,15 +12,16 @@
      transform: translateX(-50%)
      z-index: 10 // this is important - Add this code (1)
      display: flex // Add this code
-     justify-content: space-between // Add this code
-     width: 250px // Add this code
+     justify-content: center // Add this code
+     gap: 16px // Add gap between dots
+     width: auto // Add this code
      padding: 2em // Add this code
 
      .nav_item  // Add this code block
-       width: 50px
-       height: 8px
+       width: 12px
+       height: 12px
        background-color: rgba($color: #000000, $alpha: 0.6)
-       border-radius: 20px
+       border-radius: 50%
        cursor: pointer
      .nav_item.active  // and add this code block
        background-color: white
