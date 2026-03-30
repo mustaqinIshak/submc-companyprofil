@@ -11,34 +11,33 @@ function CardItem ({id, img, img2,nameItem = "no-name", price="Rp. 0", diskon=fa
             let diskonAmount = (persenDiskon / 100) * hargaAwal;
             let hargaSetelahDiskon = hargaAwal - diskonAmount;
             return(
-                <div className="text-center w-full flex flex-col mt-2 gap-1">
-                    <del className="text-gray-400 text-xs font-medium">{handleChangeRupiah(hargaAwal)}</del>
-                    <span className="text-lg font-bold text-gray-900">{handleChangeRupiah(hargaSetelahDiskon)}</span>
+                <div className="text-left w-full flex gap-2 items-center mt-1">
+                    <span className="text-[12px] font-medium text-gray-900">{handleChangeRupiah(hargaSetelahDiskon)}</span>
+                    <del className="text-gray-400 text-[11px]">{handleChangeRupiah(hargaAwal)}</del>
                 </div>
             )
         } else {
             return (
-                <div className="text-center w-full mt-2">
-                    <span className="text-lg font-semibold text-gray-900">{handleChangeRupiah(price)}</span>
+                <div className="text-left w-full mt-1">
+                    <span className="text-[12px] font-medium text-gray-500">{handleChangeRupiah(price)}</span>
                 </div>
             )
         }
     } 
 
     return(
-    <Link to={`/detail-product/${nameItem}/${id}`} className="group relative flex w-full flex-col overflow-hidden rounded-xl bg-white transition-all duration-300 hover:shadow-lg border border-gray-100 mb-8 mx-auto max-w-sm">  
-        <div className="relative overflow-hidden aspect-[4/5] bg-gray-50 flex items-center justify-center">
+    <Link to={`/detail-product/${nameItem}/${id}`} className="group relative flex w-full flex-col bg-transparent transition-all duration-300 mb-6">  
+        <div className="relative overflow-hidden aspect-[4/5] bg-[#f9f9f9] flex items-center justify-center">
             {diskon && (
-                <div className="absolute top-3 left-3 z-20 rounded-full bg-red-600 px-3 py-1 text-xs font-bold text-white shadow-sm">
+                <div className="absolute top-0 left-0 z-20 bg-red-600 px-2 py-1 text-[10px] font-bold text-white tracking-widest uppercase">
                     {jumlah_diskon}% OFF
                 </div>
             )}
-            <img className="absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-in-out group-hover:opacity-0" src={img} alt="product image" />
-            <img className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100" src={img2} alt="product internal view" />
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            <img className="absolute inset-0 h-full w-full object-cover mix-blend-multiply transition-opacity duration-700 ease-in-out group-hover:opacity-0" src={img} alt="product image" />
+            <img className="absolute inset-0 h-full w-full object-cover mix-blend-multiply opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100" src={img2} alt="product internal view" />
         </div>
-        <div className="flex flex-col items-center px-4 py-5 bg-white">
-            <h5 className="text-sm laptop:text-base font-semibold tracking-wide text-gray-800 uppercase line-clamp-1">{nameItem}</h5>       
+        <div className="flex flex-col items-start pt-3 bg-transparent text-left">
+            <h5 className="text-[11px] laptop:text-[13px] font-bold tracking-[0.1em] text-gray-900 uppercase line-clamp-1">{nameItem}</h5>       
             {
                 handleDiskon()
             }

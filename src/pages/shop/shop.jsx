@@ -40,13 +40,13 @@ function Shop() {
         handleGetProduct()
     },[page])
     return(
-        <div className="flex flex-col items-center min-h-screen bg-gray-50 pt-8">
+        <div className="flex flex-col items-center min-h-screen bg-white pt-2">
             {/* Page Header */}
-            <div className="w-full bg-white shadow-sm border-b border-gray-200 py-6 mb-4">
-                <div className="max-w-7xl mx-auto px-4 laptop:px-8 flex flex-col gap-4">
-                    <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">SHOP</h1>
+            <div className="w-full pb-8 pt-4">
+                <div className="max-w-7xl mx-auto px-4 laptop:px-8 flex flex-col gap-6 items-center">
+                    <h1 className="text-4xl font-extrabold text-gray-900 tracking-widest uppercase">SHOP</h1>
                     {/* category selection */}
-                    <form className="flex flex-col laptop:flex-row gap-4 items-center">
+                    <form className="flex flex-col laptop:flex-row gap-4 items-center justify-center">
                         <SelectCategory title={"Category"}  value={category} setValue={setCategory}   />
                         {
                             category.id !== 0 &&

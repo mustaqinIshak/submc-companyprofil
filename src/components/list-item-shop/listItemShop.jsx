@@ -19,9 +19,9 @@ function ListItemShop({items, loading, setPage}) {
     }, [loading]); // added dependency so it doesn't trigger repeatedly while already loading
 
     return(
-        <div className="flex flex-col items-center justify-center w-full px-4 laptop:px-16 max-w-7xl mb-24 overflow-hidden pt-8">
+        <div className="flex flex-col items-center justify-center w-full px-4 laptop:px-8 mb-24 overflow-hidden pt-8">
             
-            <div className="w-full grid grid-cols-2 laptop:grid-cols-3 gap-6 gap-y-10 min-h-[50vh]">
+            <div className="w-full grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 xl:grid-cols-5 gap-3 tablet:gap-4 laptop:gap-6 gap-y-12 min-h-[50vh]">
             {
                 items.length !== 0 ? (
                     items.map((item, index) =>
@@ -37,7 +37,7 @@ function ListItemShop({items, loading, setPage}) {
                         />
                     )
                 ) : !loading && (          
-                    <div className="col-span-2 laptop:col-span-3 h-full flex items-center justify-center py-20 text-gray-500 font-medium text-lg">
+                    <div className="col-span-full h-full flex items-center justify-center py-20 text-gray-500 font-medium text-lg">
                         Item Not Found
                     </div>
                 )
@@ -45,12 +45,12 @@ function ListItemShop({items, loading, setPage}) {
             {
                 loading && (
                     <>
-                        {[1, 2, 3].map((i) => (
+                        {[1, 2, 3, 4, 5].map((i) => (
                             <div key={`skeleton-${i}`} className="flex flex-col gap-4 animate-pulse">
-                                <div className="w-full aspect-[4/5] bg-gray-200 rounded-xl"></div>
-                                <div className="flex flex-col items-center gap-2">
-                                    <div className="h-4 bg-gray-300 rounded w-3/4"></div>
-                                    <div className="h-5 bg-gray-300 rounded w-1/2"></div>
+                                <div className="w-full aspect-[4/5] bg-gray-200 rounded-none"></div>
+                                <div className="flex flex-col items-start gap-2 pt-3">
+                                    <div className="h-3 bg-gray-300 rounded w-3/4"></div>
+                                    <div className="h-3 bg-gray-300 rounded w-1/4"></div>
                                 </div>
                             </div>
                         ))}

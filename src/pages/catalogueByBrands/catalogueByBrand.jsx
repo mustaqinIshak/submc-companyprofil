@@ -41,11 +41,11 @@ function CatalogueByBrand() {
     }, [page])
 
     return(
-        <div className="flex flex-col items-center min-h-screen bg-gray-50 pt-8">
-            <div className="w-full bg-white shadow-sm border-b border-gray-200 py-6 mb-4">
-                <div className="max-w-7xl mx-auto px-4 laptop:px-8 flex flex-col gap-2">
-                    <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight uppercase">{name ? name.replaceAll("-", " ") : "BRAND CATALOGUE"}</h1>
-                    <p className="text-gray-500 text-sm font-medium">Explore the latest collection from this brand</p>
+        <div className="flex flex-col items-center min-h-screen bg-white pt-2">
+            <div className="w-full pb-8 pt-4">
+                <div className="max-w-7xl mx-auto px-4 laptop:px-8 flex flex-col gap-2 items-center text-center">
+                    <h1 className="text-4xl font-extrabold text-gray-900 tracking-widest uppercase">{name ? name.replaceAll("-", " ") : "BRAND CATALOGUE"}</h1>
+                    <p className="text-gray-500 text-sm font-medium tracking-wide">Explore the latest collection from this brand</p>
                 </div>
             </div>
             <ListItemShop items={products} loading={loading} setPage={setPage} />
