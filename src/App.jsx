@@ -11,9 +11,9 @@ function App() {
     window.open(url, "_blank", "noreferrer");
   };
   return (
-    <div className='bg-white text-black'>
+    <div className='flex flex-col min-h-screen bg-white text-black'>
       <Navbar />
-        <div className='pt-[90px] laptop:pt-[115px]'>
+        <div className='flex-grow pt-[90px] laptop:pt-[115px]'>
           <Breadcrumb />
           <Outlet />
         </div>
