@@ -184,20 +184,14 @@ function DetailItem() {
                             <div className="pt-6 border-t border-gray-100 text-gray-600 leading-relaxed prose prose-sm max-w-none prose-p:my-2 prose-ul:my-2" dangerouslySetInnerHTML={{ __html: selectedProduct.deskripsi }} />
                             
                             {/* sizes */}
-                            <div className="pt-6 border-t border-gray-100 flex flex-col gap-4">
+                            <div className="pt-6 border-t border-gray-100 flex flex-col gap-2">
                                 <span className="text-sm font-semibold text-gray-900 uppercase tracking-wider">AVAILABLE SIZES</span>
-                                <div className="flex flex-wrap gap-3">
+                                <div className="text-base text-gray-700">
                                     {
                                         selectedProduct.sizes ? 
-                                        selectedProduct.sizes.map((item, index) => 
-                                            item.jumlah !== "0" && (
-                                                <div key={index} className="px-5 py-2.5 rounded-md border border-gray-300 text-sm font-medium text-gray-700 hover:border-gray-800 hover:text-gray-900 cursor-pointer transition-colors duration-200">
-                                                    {item.name}
-                                                </div>
-                                            )
-                                        )
+                                        selectedProduct.sizes.filter(item => item.jumlah !== "0").map(item => item.name).join(", ")
                                         :
-                                        <div className="px-5 py-2.5 rounded-md border border-gray-800 bg-gray-50 text-sm font-medium text-gray-900">All Size</div>
+                                        "All Size"
                                     }
                                 </div>
                             </div>
